@@ -1,0 +1,31 @@
+{#继承base.html模板#}
+{#<!--{{  }}中的内容会被动态数据替换{%  %}用于逻辑判断、循环引用 like line 3 and line 6-->#}
+{% extends "base.html" %}
+{% block content %}
+<h1>Hi, {{ user.nickname }}</h1>
+{% for posts in posts %}
+<div><p>{{ posts.author.nickname }} says: {{ posts.body }}</p></div>
+{% endfor %}
+    {% for LearnFrom in LearnFrom %}
+    <div><p><a href="{{ LearnFrom.link }}">{{ LearnFrom.teacher.nickname }}</a> </p></div>
+    {% endfor %}
+{% endblock %}
+
+{#from https://www.jianshu.com/p/23e2bc731598#}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    {% if title %}#}
+{#    <title>{{title}} - microblog</title>#}
+{#    {% else %}#}
+{#    <title>Welcome to microblog</title>#}
+{#    {% endif %}#}
+{#</head>#}
+{#<body>#}
+{#<h1>Hi, {{ user.nickname }} !</h1>#}
+{#{% for posts in posts %}#}
+{#<p>{{ posts.author.nickname }} says: <b>{{ posts.body }}</b></p>#}
+{#{% endfor %}#}
+{#</body>#}
+{#</html>#}
